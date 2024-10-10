@@ -1,0 +1,82 @@
+/* Styles pour le container des films */
+#moviesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+
+/* Effet de card */
+.movie-card {
+    opacity: 0;
+    transform: translateY(30px); /* Ajuste le mouvement vers le haut */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transition plus douce */
+    margin-bottom: 30px;
+    width: calc(33.33% - 20px); /* Largeur ajustée pour 3 par ligne */
+    height: 400px; /* Hauteur fixe pour toutes les cartes */
+}
+
+/* Lorsque la carte est active, elle devient visible */
+.movie-card.active {
+    opacity: 1; /* Opacité pleine */
+    transform: translateY(0); /* Restauration à la position d'origine */
+}
+
+/* Effet de transition sur les images */
+.movie-card img {
+    width: 100%; /* Prend toute la largeur de la carte */
+    height: 250px; /* Hauteur fixe pour toutes les images */
+    object-fit: cover; /* Ajustement de l'image sans déformation */
+}
+
+/* Styles pour le titre du film */
+.movie-card .card-title {
+    white-space: nowrap; /* Empêche le retour à la ligne */
+    overflow: hidden; /* Cache le débordement */
+    text-overflow: ellipsis; /* Ajoute des "..." à la fin */
+    font-size: 1.2rem; /* Taille de police par défaut */
+}
+
+/* Effet de zoom sur hover pour toute la carte */
+.movie-card:hover {
+    transform: scale(1.05); /* Grossissement de la carte entière */
+}
+
+/* Ombre des cartes */
+.card {
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+}
+
+/* Effet sur le formulaire */
+input:focus {
+    transform: scale(1.05);
+    border-color: #007bff; /* Couleur de Bootstrap */
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+/* Pour les petits écrans */
+@media (max-width: 768px) {
+    .movie-card {
+        width: calc(50% - 20px); /* 2 par ligne sur les petits écrans */
+        height: 400px; /* Hauteur constante */
+    }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 480px) {
+    .movie-card {
+        width: 100%; /* 1 par ligne sur les très petits écrans */
+        height: 400px; /* Hauteur constante */
+    }
+}
+
+/* Appliquer la police Danfo au titre */
+.title {
+    font-family: 'Danfo', sans-serif; /* Applique la police Danfo */
+    font-size: 3rem; /* Ajustez la taille selon votre préférence */
+    color: #a52a2a; /* Couleur marron pour imiter le thème western */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour donner un effet 3D */
+}
